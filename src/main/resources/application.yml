@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: ""
+    username: ""
+    password: ""
+
+# MyBatis配置
+mybatis:
+  mapper-locations:
+    - classpath*:mapper/**/*.xml
+  # 映射的实体类所在路径
+  type-aliases-package: com.apple.dev.entity
+  # 查看sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    org.springframework.transaction: DEBUG
+    com.apple.dev: debug

@@ -1,0 +1,6 @@
+1. spring的声明式事务是延迟加载的，并不是在进入方法前就会开启事务
+2. spring的声明式事务会在第一次执行sql前开启事务
+3. PlatformTransactionManager，如果要在提交后执行一些逻辑，都必须去注册afterCommit事件
+4. PlatformTransactionManager靠finally是没办法做到，finally的执行在commit事务后面
+5. PlatformTransactionManager如果要想事务无论提交还是回滚后都执行某个逻辑，目前最好的方案是注册afterCompletion事件
+6. 优先使用TransactionTemplate,如果不能解决问题才考虑使用PlatformTransactionManager
